@@ -1,6 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -16,8 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
-RDEPEND=">=dev-erlang/fast_xml-1.1.18
-	>=dev-erlang/stringprep-1.0.7
+RDEPEND=">=dev-erlang/fast_xml-1.1.22
+	>=dev-erlang/stringprep-1.0.8
 	>=dev-lang/erlang-17.1"
 DEPEND="${RDEPEND}"
 
