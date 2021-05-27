@@ -60,5 +60,5 @@ pkg_postrm() {
 pkg_postinst() {
 	xdg_icon_cache_update
 	elog 'Sublime Text 4'"'"'s window class changes from WM_CLASS="subl","Subl" to'
-	elog 'WM_CLASS="sublime_text","Sublime_text" matching other platforms.'
+	elog 'WM_CLASS="sublime_text","Sublime_text" matching other distributions.'
 }
