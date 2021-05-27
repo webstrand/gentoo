@@ -27,8 +27,8 @@ RDEPEND="
 	dbus? ( sys-apps/dbus )"
 
 PATCHES=(
-	"${FILESDIR}"/sublime-text-4_p4107-remove-deprecated-key-onlyshowin-from-launcher.patch
-	"${FILESDIR}"/sublime-text-4_p4107-set-explicit-startupwmclass-in-launcher.patch
+	"${FILESDIR}"/${PN}-4_p4107-remove-deprecated-key-onlyshowin-from-launcher.patch
+	"${FILESDIR}"/${PN}-4_p4107-set-explicit-startupwmclass-in-launcher.patch
 )
 
 QA_PREBUILT="*"
