@@ -1,5 +1,6 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+
 EAPI=7
 
 inherit desktop xdg-utils wrapper
@@ -24,6 +25,10 @@ RDEPEND="
 	x11-libs/gtk+:3
 	x11-libs/libX11
 	dbus? ( sys-apps/dbus )"
+
+PATCHES=(
+	"${FILESDIR}"/sublime-text-desktop.patch
+)
 
 QA_PREBUILT="*"
 S="${WORKDIR}/${MY_PN}"

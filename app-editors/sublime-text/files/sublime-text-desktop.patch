@@ -1,0 +1,19 @@
+diff -Naur sublime_text/sublime_text.desktop sublime_text-fixed/sublime_text.desktop
+--- sublime_text/sublime_text.desktop	2021-05-20 05:02:57.000000000 -0400
++++ sublime_text-fixed/sublime_text.desktop	2021-05-27 16:37:02.717027333 -0400
+@@ -10,14 +10,13 @@
+ Icon=sublime-text
+ Categories=TextEditor;Development;
+ StartupNotify=true
++StartupWMClass=Sublime_text
+ Actions=new-window;new-file;
+ 
+ [Desktop Action new-window]
+ Name=New Window
+ Exec=/opt/sublime_text/sublime_text --launch-or-new-window
+-OnlyShowIn=Unity;
+ 
+ [Desktop Action new-file]
+ Name=New File
+ Exec=/opt/sublime_text/sublime_text --command new_file
+-OnlyShowIn=Unity;
