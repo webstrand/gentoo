@@ -27,7 +27,8 @@ RDEPEND="
 	dbus? ( sys-apps/dbus )"
 
 PATCHES=(
-	"${FILESDIR}"/sublime-text-desktop.patch
+	"${FILESDIR}"/remove-deprecated-ShowOnlyIn-from-launcher.patch
+	"${FILESDIR}"/add-StartupWMClass-to-launcher.patch
 )
 
 QA_PREBUILT="*"
