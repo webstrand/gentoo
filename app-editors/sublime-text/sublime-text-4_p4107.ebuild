@@ -1,12 +1,10 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-
 EAPI=7
 
 inherit desktop xdg-utils wrapper
 
 # get the major version from PV
-MV=$(ver_cut 1)
 MY_PV=$(ver_cut 3)
 MY_PN=${PN/-/_}
 
@@ -35,9 +33,8 @@ S="${WORKDIR}/${MY_PN}"
 
 src_install() {
 	insinto /opt/${MY_PN}
-
 	doins -r Packages Lib Icon # /Icon is used at runtime by the application
-	doins changelog.txt libcrypto.so.1.1  libssl.so.1.1 sublime_text.desktop
+	doins changelog.txt libcrypto.so.1.1 libssl.so.1.1 sublime_text.desktop
 
 	# sublime_merge looks for /opt/sublime_text/sublime_text
 	exeinto /opt/${MY_PN}
@@ -45,11 +42,9 @@ src_install() {
 
 	# sublime-text sets it's WM_CLASS based on its argv[0]. A wrapper script is
 	# used instead of a symlink to preserve a consistent WM_CLASS regardless of
-	# how the application is launched.
-	make_wrapper subl "/opt/${MY_PN}/sublime_text --fwdargv0 "'"$0"'
-
-	# desktop entry must match WM_CLASS for startup notifications to work
-	# correctly.
+	# how the application is launched. This causes the WM_CLASS to be
+	# "sublime_text" which matches the .desktop entry.
+	make_wrapper subl "/opt/${MY_PN}/sublime_text --fwdargv0 \"\$0\""
 	domenu sublime_text.desktop
 
 	local size
@@ -64,4 +59,6 @@ pkg_postrm() {
 
 pkg_postinst() {
 	xdg_icon_cache_update
+	elog 'Sublime Text 4'"'"'s window class changes from WM_CLASS="subl","Subl" to'
+	elog 'WM_CLASS="sublime_text","Sublime_text" matching other platforms.'
 }
